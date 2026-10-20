@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Whale Girl Bot",
+    "description": "Control plane for the self-hosted WeChat/QQ bot: start & stop the sidecar, toggle every feature, edit her persona, tune reply frequency, and drive her from chat with whalegirl_* tools."
+  }
+}

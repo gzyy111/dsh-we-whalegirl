@@ -1,0 +1,33 @@
+# dsh-we-whalegirl —— 鲸鱼娘机器人的 DSH 控制面
+#
+# 插入两件事：
+#   1. Host 行：进程托管 / 同源代理 / 9 个 Agent 工具
+#   2. Client 半边（package.json 的 dsh.client）自动挂到「设置 → 鲸鱼娘」
+#
+# 安装后必须把 botRoot 指到你自己的机器人目录（本插件不附带机器人本体）。
+- insert:
+    - id: whalegirl
+      name: 'dsh-we-whalegirl'
+      config:
+        # ★ 必填：机器人源码目录（Python 侧车所在目录，需含 web_main.py）
+        #   Windows 写法用正斜杠或双反斜杠，例如：
+        #   botRoot: 'D:/bots/deepseekgirl'
+        botRoot: ''
+        # 留空 = <botRoot>\.venv\Scripts\python.exe
+        pythonExe: ''
+        # 机器人内部 API 端口（只监听 127.0.0.1）
+        port: 8080
+        # auto   = 已有实例就接管，没有就拉起
+        # attach = 只接管，绝不自己拉进程
+        # manual = 完全不碰进程，只看状态
+        mode: auto
+        # 插件激活后是否自动 ensure。默认 false：首次安装不碰进程，点「启动」再说。
+        autoStart: false
+        # DSH 退出时是否顺手停掉机器人。默认 false：机器人要 24 小时在群里。
+        stopOnExit: false
+        # 允许 whalegirl_say / whalegirl_image 发到监听列表以外的会话
+        allowAnyRoom: false
+        # 改完设置是否自动重启（默认 false，交给「保存并重启」按钮）
+        automaticRestart: false
+        # 是否注册侧栏「鲸鱼娘」总览面板（占宿主主面板槽位，建议先跑稳设置页）
+        enablePanel: false

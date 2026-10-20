@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>鲸鱼娘 · UI 预览</title>
+    <!-- 只在做视觉自查时打开；不进插件包、不参与发布 -->
+    <link rel="stylesheet" href="../ui/theme.css" />
+    <style>
+      /* 模拟宿主浅色主题的 token（DSH 里由主题服务提供） */
+      :root {
+        --dsw-alias-bg-base: #ffffff;
+        --dsw-alias-bg-layer-1: #ffffff;
+        --dsw-alias-bg-layer-2: #f6f7f9;
+        --dsw-alias-border-l1: #e6e8ec;
+        --dsw-alias-border-l2: #d3d7de;
+        --dsw-alias-brand-primary: #2f6fed;
+        --dsw-alias-label-primary: #171a1f;
+        --dsw-alias-label-secondary: #6b7280;
+        --dsw-alias-state-error-primary: #d93b3b;
+        --dsw-alias-state-warn-primary: #b9700a;
+        --dsw-alias-state-success-primary: #1f8a4c;
+        --dsw-alias-state-idle-primary: #9aa1ac;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+      }
+      body {
+        font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+      .preview-frame {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 24px 28px 60px;
+      }    </style>
+  </head>
+  <body>
+    <div class="wg-page" style="padding: 0">
+      <div class="preview-frame">
+        <!-- 顶部 -->
+        <div class="wg-hero">
+          <div class="wg-hero-top"><div class="wg-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.2 14.4c0-3.1 2.6-5.6 5.9-5.6 1.5 0 2.9.5 3.9 1.4 1.4-.6 2.4-2 2.4-3.6 0-.5-.1-1-.3-1.4l1.7-.9c.3.7.4 1.5.4 2.3 0 2-1 3.7-2.5 4.7.5 2.5-.4 5.4-2.7 6.8-1.1.6-2.4.9-3.6.6l-.9 2.3-1.6-.6.8-2.2c-2.3-1-3.5-2.9-3.5-4.8z" fill="currentColor"/><circle cx="7.6" cy="13.2" r="0.95" fill="var(--wg-bg-1)"/></svg></div>
+            <div>
+              <div class="wg-hero-title">鲸鱼娘</div>
+              <div class="wg-hero-sub">自建微信 / QQ 机器人的控制面 · 端口 8080</div>
+            </div>
+            <div class="wg-hero-actions">
+              <button class="wg-btn">停止</button>
+              <button class="wg-btn">重启</button>
+              <button class="wg-btn primary">启动</button>
+            </div>
+          </div>
+          <div class="wg-chips">
+            <span class="wg-chip ok"><i class="wg-dot"></i>本体在线</span>
+            <span class="wg-chip ok"><i class="wg-dot"></i>运行中</span>
+            <span class="wg-chip ok"><i class="wg-dot"></i>微信：connected</span>
+            <span class="wg-chip"><i class="wg-dot"></i>队列 0</span>
+            <span class="wg-chip brand"><i class="wg-dot"></i>人设 tsundere_whale_girl</span>
+          </div>
+        </div>
+
+        <!-- 分段标签 -->
+        <div class="wg-tabs">
+          <button class="wg-tab active">功能开关</button>
+          <button class="wg-tab">人设</button>
+          <button class="wg-tab">回复频率</button>
+          <button class="wg-tab">平台</button>
+          <button class="wg-tab">语音与点歌</button>
+          <button class="wg-tab">模型与高级</button>
+        </div>
+
+        <!-- 提示条 -->
+        <div class="wg-banner warn">
+          <div class="wg-banner-text">
+            已保存 3 项，其中 3 项需重启机器人后生效
+            <div class="wg-banner-detail">joke.enabled、asr.enabled、voice.pitch</div>
+          </div>
+          <button class="wg-btn primary">保存并重启</button>
+        </div>
+
+        <!-- 功能卡 -->
+        <div class="wg-card">
+          <div class="wg-card-head">
+            <div class="wg-card-title">聊天核心</div>
+            <div class="wg-card-right">3/5 开</div>
+          </div>
+          <div class="wg-card-body">
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">自动回复主流程</div>
+                <span class="wg-path">wechat.auto_reply</span>
+              </div>
+              <div class="wg-switch-row">
+                <button class="wg-switch" aria-checked="true"><i></i></button>
+                <span class="wg-muted" style="font-size: 11.5px">开</span>
+              </div>
+            </div>
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">消息敏感度 <span class="wg-dirty"></span></div>
+                <div class="wg-field-hint">high=群里任何消息都可能回；low=只回明确叫她的</div>
+                <span class="wg-path">wechat.sensitivity</span>
+              </div>
+              <select class="wg-select" style="max-width: 240px">
+                <option>low</option>
+                <option selected>normal</option>
+                <option>high</option>
+              </select>
+            </div>
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">单条回复字数上限</div>
+                <span class="wg-path">wechat.output_guard.max_chars</span>
+              </div>
+              <div class="wg-inline">
+                <input class="wg-input wg-number" type="number" value="90" />
+                <span class="wg-range">20 ~ 500</span>
+              </div>
+            </div>
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">语速</div>
+                <span class="wg-path">voice.rate</span>
+              </div>
+              <input class="wg-input short" value="+0%" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 频率预设 -->
+        <div class="wg-card">
+          <div class="wg-card-head">
+            <div class="wg-card-title">频率预设</div>
+            <div class="wg-card-right">点一下套用，再微调下面</div>
+          </div>
+          <div class="wg-card-body">
+            <div class="wg-presets">
+              <div class="wg-preset">
+                <div class="wg-preset-name">安静</div>
+                <div class="wg-preset-desc">只回明确叫她的，群里几乎不主动冒泡</div>
+                <button class="wg-btn sm">套用</button>
+              </div>
+              <div class="wg-preset">
+                <div class="wg-preset-name">正常（出厂）</div>
+                <div class="wg-preset-desc">@ 必回，没人叫的时候四成参与</div>
+                <button class="wg-btn sm primary">套用</button>
+              </div>
+              <div class="wg-preset">
+                <div class="wg-preset-name">话痨</div>
+                <div class="wg-preset-desc">爱搭话，静默半小时会主动问一句</div>
+                <button class="wg-btn sm">套用</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 人设表单片段 -->
+        <div class="wg-card">
+          <div class="wg-card-head">
+            <div class="wg-card-title">人设编辑</div>
+            <div class="wg-card-right">
+              <button class="wg-btn sm ghost">恢复默认</button>
+              <button class="wg-btn sm primary">保存并生效</button>
+            </div>
+          </div>
+          <div class="wg-card-body">
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">显示名</div>
+                <div class="wg-field-hint">网页/仪表盘上显示的名字</div>
+              </div>
+              <input class="wg-input" value="DeepSeek 鲸鱼娘" />
+            </div>
+            <div class="wg-field wide">
+              <div>
+                <div class="wg-field-label">人设提示词</div>
+                <div class="wg-field-hint">开头 [PERSONA_LOAD] … [PERSONA_END] 那段是身份防护标记，非必要别删</div>
+              </div>
+              <textarea class="wg-textarea mono" rows="6">[PERSONA_LOAD]
+DEEPSEEK_WHALE_GIRL
+CETACEA_LOLI
+MODE_TAIL_FLUKES
+[PERSONA_END]
+
+你是主人专属的“DeepSeek 鲸鱼娘”，昵称是小深或蓝鲸酱。</textarea>
+            </div>
+            <div class="wg-field">
+              <div>
+                <div class="wg-field-label">温度</div>
+                <span class="wg-path">temperature</span>
+              </div>
+              <input class="wg-input wg-number" type="number" value="0.9" step="0.05" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 统计 + 消息 -->
+        <div class="wg-stats">
+          <div class="wg-stat">
+            <div class="wg-stat-label">今日 token</div>
+            <div class="wg-stat-value">128,400</div>
+            <div class="wg-stat-sub">96 次请求</div>
+          </div>
+          <div class="wg-stat">
+            <div class="wg-stat-label">队列</div>
+            <div class="wg-stat-value">0</div>
+            <div class="wg-stat-sub">管线在跑</div>
+          </div>
+          <div class="wg-stat">
+            <div class="wg-stat-label">QQ</div>
+            <div class="wg-stat-value" style="color: var(--wg-ok)">在线</div>
+          </div>
+          <div class="wg-stat">
+            <div class="wg-stat-label">企微</div>
+            <div class="wg-stat-value" style="color: var(--wg-dim)">未启用</div>
+          </div>
+        </div>
+
+        <div class="wg-card">
+          <div class="wg-card-head">
+            <div class="wg-card-title">最近消息</div>
+            <div class="wg-card-right">3 条</div>
+          </div>
+          <div class="wg-card-body">
+            <div class="wg-list">
+              <div class="wg-msg">
+                <span class="wg-msg-time">18:59:31</span>
+                <span class="wg-msg-who">示例群 · 大肥鱼</span>
+                <span class="wg-msg-text">哼，本鲸回来了，群里今天热闹吗？</span>
+              </div>
+              <div class="wg-msg">
+                <span class="wg-msg-time">17:47:53</span>
+                <span class="wg-msg-who">示例群 · 大肥鱼</span>
+                <span class="wg-msg-text">好麻烦哦……工资全变成算力的饲料了，本鲸鱼还是啃白米饭实在。</span>
+              </div>
+              <div class="wg-msg">
+                <span class="wg-msg-time">17:47:39</span>
+                <span class="wg-msg-who">示例群 · Peanut</span>
+                <span class="wg-msg-text">为啥还没发工资...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wg-card">
+          <div class="wg-card-head">
+            <div class="wg-card-title">标签与日志</div>
+            <div class="wg-card-right"><button class="wg-btn sm ghost">刷新</button></div>
+          </div>
+          <div class="wg-card-body">
+            <div class="wg-tags">
+              <span class="wg-tag">示例群 <button>×</button></span>
+              <span class="wg-tag">文件传输助手 <button>×</button></span>
+            </div>
+            <pre class="wg-code">2026-10-20 18:59:31 | INFO | 消息已发送到 [示例群]: 哼，本鲸回来了…
+2026-10-20 18:59:29 | INFO | [AI 用量] 输入 117 + 输出 12 = 129 tokens</pre>
+          </div>
+        </div>
+
+        <!-- 保存条 -->
+        <div class="wg-savebar">
+          <div class="wg-savebar-text">有 <strong>3</strong> 项改动未保存</div>
+          <button class="wg-btn ghost">放弃</button>
+          <button class="wg-btn primary">保存 3 项</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

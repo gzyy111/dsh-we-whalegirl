@@ -1,0 +1,57 @@
+{
+  "name": "dsh-we-whalegirl",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "DSH 插件：自建微信/QQ「鲸鱼娘」机器人的控制面 —— 启停 Python 侧车、逐个开关功能、改人设、调回复频率，并可用 whalegirl_* 工具在对话里指挥她",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "wechat",
+    "qq",
+    "chatbot",
+    "whalegirl",
+    "self-hosted"
+  ],
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzyy111/dsh-we-whalegirl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzyy111/dsh-we-whalegirl/issues"
+  },
+  "homepage": "https://github.com/gzyy111/dsh-we-whalegirl#readme",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/*.js",
+    "ui/theme.css",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}
