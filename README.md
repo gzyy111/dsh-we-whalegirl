@@ -13,6 +13,16 @@
 
 **不是**：机器人本体。微信 UI 自动化、faster-whisper、edge-tts、SoulX-Singer / ACE-Step（conda + GPU）这些仍然留在 Python 侧，插件只做控制面，**不包含**也不重写它们。
 
+## AstrBot 侧插件
+
+本仓库同时收纳机器人**大脑**（AstrBot）侧的三个插件，都是「在 LLM 之前截住消息、自己干活、直接发出去」的写法：
+
+- `astrbot_plugin_nsfw_image` — 找图直发（gelbooru + 20 张预取池）
+- `astrbot_plugin_voice_sing` — 唱歌 / 念稿（TTS 发语音）
+- `astrbot_plugin_song_request` — 点歌（原曲文件 / 切段语音）
+
+安装前置（curl、ffmpeg、代理）、配置（必关 `safety_mode`、人格提示词、`plugin_set`）和排查表都写在 **[astrbot-plugins/README.md](astrbot-plugins/README.md)**。
+
 ## 能力
 
 | 区域 | 内容 |

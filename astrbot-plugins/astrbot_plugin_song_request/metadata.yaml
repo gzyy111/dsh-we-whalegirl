@@ -1,0 +1,5 @@
+name: song_request
+desc: 点歌：点歌 X 放原曲文件；点歌 唱 X 分 5~7 条语音唱；全在模型之前截住
+version: 1.2.0
+author: dsh
+repo: ""

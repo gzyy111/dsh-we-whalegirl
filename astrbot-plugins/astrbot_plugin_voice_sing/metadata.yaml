@@ -1,0 +1,5 @@
+name: voice_sing
+desc: 语音唱歌：要语音就真发一条语音，用 TTS 合成，不再回文字
+version: 1.0.0
+author: dsh
+repo: ""
