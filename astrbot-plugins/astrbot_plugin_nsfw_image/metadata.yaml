@@ -1,0 +1,5 @@
+name: nsfw_image
+desc: 色图直发：群友要色图时直接抓图回图，绕开大模型（防拒绝）
+version: 1.7.0
+author: dsh
+repo: ""
